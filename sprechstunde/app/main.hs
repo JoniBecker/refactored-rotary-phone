@@ -26,4 +26,15 @@ normalisedTime (Time h m) = Time (h + quot m 60) (m `mod` 60)
 addMinutes :: Time -> Int -> Time
 addMinutes (Time h m) minutes = normalisedTime $Time h $m+minutes
 
+newtype Name = Name String
+    deriving Show
 
+newtype Mail = Mail String
+    deriving Show
+
+data Person = Person Name Mail
+instance Show Person where
+	show (Person name mail) = "Name:" ++ (show Name) ++ "E-Mail:" ++ (show Mail)
+
+data Course = Course Name
+	deriving Show
